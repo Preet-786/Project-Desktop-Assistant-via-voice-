@@ -154,12 +154,13 @@ while(True):
 				sendMail(eid,msg)
 				print("Email has been sent!!!!")
 			elif ('open' in querry):
-				querry=querry.replace('open','')
-				f=0
-				for querry in l:
-					url=querry+'.com'
-					f=1
-					break
+				querry=querry.replace('open ','')
+				f=0; url=""
+				for i in l:
+					if(i in querry):
+						url=i+'.com'
+						f=1
+						break
 				if f==1:
 					webbrowser.open(url)
 				else:
