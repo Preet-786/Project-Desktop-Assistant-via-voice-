@@ -6,7 +6,7 @@ import datetime
 import wikipedia
 import smtplib
 
-Owner="My lord"
+Owner="SIR"
 
 #browser_path='C://Program Files//Mozilla Firefox//firefox.exe %s'    
 browser_path='C://Program Files (x86)//Google//Chrome//Application//chrome.exe %s'
@@ -26,6 +26,7 @@ def speak(text):
 def takeCommand():
 	r=sr.Recognizer()
 	with sr.Microphone() as source:
+		r.adjust_for_ambient_noise(source)
 		print("Listening>>>>>>")
 		audio=r.listen(source)
 	try:
@@ -58,7 +59,7 @@ print("Hello!!! "+wish()+" How can I help You")
 speak("Hello!!! "+wish()+" How can I help You")
 
 while(True):
-	querry = takeCommand();speak(querry)
+	querry = takeCommand(); speak(querry)
 	try:
 		if(querry==None or querry.lower()=="exit"):
 			print("Happy to help you!!! Good Bye....")
